@@ -1,11 +1,6 @@
 [
     {
         "inputs": [],
-        "name": "DataCollectionNotStarted",
-        "type": "error"
-    },
-    {
-        "inputs": [],
         "name": "addressAlreadyUser",
         "type": "error"
     },
@@ -86,37 +81,7 @@
         "type": "event"
     },
     {
-        "inputs": [
-            {
-                "internalType": "address",
-                "name": "",
-                "type": "address"
-            }
-        ],
-        "name": "addressToUserId",
-        "outputs": [
-            {
-                "internalType": "uint256",
-                "name": "id",
-                "type": "uint256"
-            },
-            {
-                "internalType": "address",
-                "name": "userAddress",
-                "type": "address"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "uint256",
-                "name": "userId",
-                "type": "uint256"
-            }
-        ],
+        "inputs": [],
         "name": "claimRewards",
         "outputs": [],
         "stateMutability": "nonpayable",
@@ -136,13 +101,7 @@
         "type": "function"
     },
     {
-        "inputs": [
-            {
-                "internalType": "uint256",
-                "name": "userId",
-                "type": "uint256"
-            }
-        ],
+        "inputs": [],
         "name": "deleteData",
         "outputs": [],
         "stateMutability": "nonpayable",
@@ -151,9 +110,22 @@
     {
         "inputs": [
             {
-                "internalType": "uint256",
-                "name": "userId",
-                "type": "uint256"
+                "internalType": "address",
+                "name": "userAddress",
+                "type": "address"
+            }
+        ],
+        "name": "deleteUser",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "userAddress",
+                "type": "address"
             }
         ],
         "name": "getCurrentCollectionPeriod",
@@ -170,9 +142,9 @@
     {
         "inputs": [
             {
-                "internalType": "uint256",
-                "name": "userId",
-                "type": "uint256"
+                "internalType": "address",
+                "name": "userAddress",
+                "type": "address"
             }
         ],
         "name": "getTotalCollectionPeriod",
@@ -189,9 +161,9 @@
     {
         "inputs": [
             {
-                "internalType": "uint256",
-                "name": "userId",
-                "type": "uint256"
+                "internalType": "address",
+                "name": "userAddress",
+                "type": "address"
             }
         ],
         "name": "getUserEarnings",
@@ -203,13 +175,6 @@
             }
         ],
         "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [],
-        "name": "initiateDataCollection",
-        "outputs": [],
-        "stateMutability": "nonpayable",
         "type": "function"
     },
     {
@@ -275,7 +240,13 @@
     {
         "inputs": [],
         "name": "signUp",
-        "outputs": [],
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
         "stateMutability": "nonpayable",
         "type": "function"
     },
@@ -293,13 +264,7 @@
         "type": "function"
     },
     {
-        "inputs": [
-            {
-                "internalType": "uint256",
-                "name": "userId",
-                "type": "uint256"
-            }
-        ],
+        "inputs": [],
         "name": "toggleDataCollection",
         "outputs": [],
         "stateMutability": "nonpayable",
@@ -316,6 +281,25 @@
         "name": "transferOwnership",
         "outputs": [],
         "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "name": "users",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "userAddress",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
         "type": "function"
     }
 ]

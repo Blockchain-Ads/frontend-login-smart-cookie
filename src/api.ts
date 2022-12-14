@@ -36,14 +36,12 @@ async function wait(ref:any): Promise<string> {
   });
 }
 
-function checkJwtDecode(token: string): StandardResult {
+function checkJwtDecode(token: string):StandardResult {
   try {
-    return { result: token, status: STATUS_OK };
+    return { result: jwtDecode<JwtPayload>(token), status: STATUS_OK };
   } catch (error) {
-    return {
-      result: "",
-      status: { errorCode: ERROR_CODE.GENERIC, reason: `${error}` }
-    };
+    return { result: "", status: { errorCode: ERROR_CODE.GENERIC, reason: `${error}` } };
+
   }
 }
 type status_ok = string;
@@ -63,7 +61,7 @@ type Error = {
   reason: string
 };
 
-type StandardResult = {
+export type StandardResult = {
   result: any,
   status: TypeStatus
 };
