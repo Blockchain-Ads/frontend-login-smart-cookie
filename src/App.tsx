@@ -353,41 +353,47 @@ function App() {
   }, [rpcProvider]);
 
   return (
-    <div className="App">
-      <section>
-        {/* TODO move to new component */}
-        {!account ? (
-          <div className="flex flex-col p-12 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
-            <label className="flex mt-6 mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-              Welcome to test app
-            </label>
-            <label className="flex mb-6 text-sm font-medium text-gray-900 dark:text-gray-300">
-              to get started, connect your wallet
-            </label>
-            <ConnectWalletButton connectWallet={connectWallet} />
+    <section className="header1 solutionm4_header1 cid-t4LxNR6lJL mbr-fullscreen" id="header1-1">
+
+      <div className="mbr-overlay"></div>
+      <div className="container align-center">
+          <div id="div-insert-react" className="row justify-content-center">
+              <div className="mbr-white col-md-12 col-lg-12">
+
+                  <h1 className="mbr-section-title mbr-white pb-4 mbr-fonts-style display-1"><strong>The Web3 Cookie&nbsp;</strong></h1>
+                  <p className="mbr-text pb-4 mbr-white mbr-regular mbr-fonts-style display-5">Take <strong>Ownership</strong> of your<strong> Online Journey</strong> </p>
+                  <div className="container mx-auto">
+                    {!account ? (
+                        <div>
+                          <ConnectWalletButton connectWallet={connectWallet} />
+                        </div>
+                      ) : !isSignUp ? (
+                        <div>
+                          <label className="block">
+                            Wallet connected
+                          </label>
+                          <SignupButton signup={executeSignup} />
+                        </div>
+                      ) : (
+                        <div>
+                          <label className="block">
+                            You have signed up
+                          </label>
+                          <ToggleButton
+                            executeToggle={executeToogle}
+                            localStorageData={localStorageData}
+                          />
+                          <ClaimRewardButton executeClaimReward={executeClaimReward} />
+                          <DeleteAccountButton executeDeleteData={executeDeleteData} />
+                        </div>
+                      )}
+                  </div>
+              </div>
+              <div id="root"></div>
+
           </div>
-        ) : !isSignUp ? (
-          <div className="p-12 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
-            <label className="flex mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-              Wallet connected
-            </label>
-            <SignupButton signup={executeSignup} />
-          </div>
-        ) : (
-          <div className="p-12 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
-            <label className="flex mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-              You have signed up
-            </label>
-            <ToggleButton
-              executeToggle={executeToogle}
-              localStorageData={localStorageData}
-            />
-            <ClaimRewardButton executeClaimReward={executeClaimReward} />
-            <DeleteAccountButton executeDeleteData={executeDeleteData} />
-          </div>
-        )}
-      </section>
-    </div>
+      </div>
+  </section>
   );
 }
 

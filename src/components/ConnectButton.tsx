@@ -1,9 +1,5 @@
 export const ConnectWalletButton = (props:any) => {
   return (
-
-      <button onClick={props.connectWallet} type="button" className="flex w-2/3 item-center justify-center text-gray-900 hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex dark:focus:ring-gray-600 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 mb-2">
-        Connect your wallet
-      </button>
-
+    <button type="button" onClick={props.connectWallet} className="connect-wallet-js-target text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:focus:ring-blue-800 bg-blue-500"><span className="fa fa-unlock mbr-iconfont mbr-iconfont-btn"></span>Connect Wallet</button>
   );
 }
