@@ -16,7 +16,6 @@ jobs:
 
       - name: 🛠 Build React app
         run: |
-          cd frontend-login-smart-cookie
           npm install
           npm run build
 
