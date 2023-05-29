@@ -1,0 +1,39 @@
+on:
+  push:
+    branches:
+      - main
+
+name: 🚀 Deploy React app on push
+
+jobs:
+  deploy:
+    name: 🎉 Deploy React app
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🚚 Checkout repository
+        uses: actions/checkout@v2
+
+      - name: 🛠 Build React app
+        run: |
+          cd frontend-login-smart-cookie
+          npm install
+          npm run build
+
+      - name: 📂 Deploy React app
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          publish_dir: ./frontend-login-smart-cookie/build
+          publish_branch: gh-pages
+          allow_empty_commit: true
+          keep_files: false
+          silent: true
+
+      - name: 📂 Sync files
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: premium190.web-hosting.com
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./frontend-login-smart-cookie/build
+          remote-dir: /own-your-cookie
