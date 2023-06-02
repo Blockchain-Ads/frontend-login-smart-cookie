@@ -1,7 +1,7 @@
 on:
   push:
     branches:
-      - test
+      - master
 
 name: 🚀 Deploy React app on push
 
@@ -15,7 +15,10 @@ jobs:
         uses: actions/checkout@v2
 
       - name: 🛠 Build React app
+        env:
+          CI: false
         run: |
+          cd x-ads-partisia
           npm install
           npm run build
 
@@ -25,5 +28,4 @@ jobs:
           server: premium190.web-hosting.com
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./build
-          remote-dir: /own-your-cookie
+          local-dir: ./x-ads-partisia/build/
